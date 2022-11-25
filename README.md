@@ -1,4 +1,4 @@
-TypeScript Vite Tippyjs Demo
+TypeScript Vite Tippyjs Expand Demo
 ===========================
 
 ```
