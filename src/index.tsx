@@ -9,7 +9,15 @@ import ReactDOM from 'react-dom';
 tippy('button', {
         maxWidth: 'none',
         interactive: true,
-        trigger: 'click',
+        duration: 100,
+        trigger: 'mouseenter',
+        onClickOutside: (instance) => {
+            instance.setProps({onHide: () => undefined})
+            instance.hide();
+        },
+        onShow: (instance) => {
+            instance.setProps({onHide: () => false})
+        },
         onCreate: (instance) => {
             ReactDOM.render(
                 <Hello onExpand={(expand) => {
