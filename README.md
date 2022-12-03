@@ -8,7 +8,7 @@ tippy的实现是：
 2. 如果是mouseenter，则离开trigger后会关闭
 3. 如果是mouseenter+mouseleave，虽然离开后不会关闭，但是一旦鼠标划过tooltip再离开，就会关闭
 
-所以需要借助tippy的一些属性实现
+最终找到的办法是trigger用`manual`，同时手动添加mouseenter的handler
 
 ```
 npm install

@@ -16,7 +16,10 @@ export const Hello: FC<Props> = ({onExpand}) => {
       width: ${expand ? '80vw' : 'auto'};
       height: ${expand ? '80vh' : 'auto'};
     `}>
-        <button onClick={() => setExpand(v => !v)}>
+        <button onClick={(event) => {
+            setExpand(v => !v)
+            event.stopPropagation();
+        }}>
             {expand
                 ? <div>&gt;&lt;</div>
                 : <div>&lt;&gt;</div>

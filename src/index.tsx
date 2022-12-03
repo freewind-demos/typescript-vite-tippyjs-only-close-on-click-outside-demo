@@ -10,21 +10,18 @@ tippy('button', {
         maxWidth: 'none',
         interactive: true,
         duration: 100,
-        trigger: 'mouseenter',
-        onClickOutside: (instance) => {
-            instance.setProps({onHide: () => undefined})
-            instance.hide();
+        trigger: 'manual',
+        placement: 'auto-end',
+        onCreate: (instance) => {
+            instance.reference.addEventListener('mouseenter', () => instance.show());
         },
         onShow: (instance) => {
-            instance.setProps({onHide: () => false})
-        },
-        onCreate: (instance) => {
             ReactDOM.render(
-                <Hello onExpand={(expand) => {
+                <Hello key={Date.now()} onExpand={(expand) => {
                     instance.setProps({})
                 }}/>,
                 instance.popper.querySelector('.tippy-content')
             )
-        }
+        },
     }
-);
+)
